@@ -1,0 +1,10 @@
+taxi:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: oauth
+      project: retail-dev-nk2026
+      dataset: dbt_dev
+      location: US
+      threads: 4

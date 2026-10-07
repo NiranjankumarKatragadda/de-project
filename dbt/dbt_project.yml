@@ -1,0 +1,13 @@
+name: taxi
+version: "1.0.0"
+config-version: 2
+profile: taxi
+
+model-paths: ["models"]
+
+models:
+  taxi:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table

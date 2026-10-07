@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: raw
+    database: retail-dev-nk2026
+    schema: raw
+    tables:
+      - name: yellow_trips
