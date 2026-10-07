@@ -4,13 +4,24 @@ models:
   - name: stg_trips
     columns:
       - name: pickup_ts
-        tests: [not_null]
+        data_tests: [not_null]
       - name: fare_amount
-        tests: [not_null]
+        data_tests: [not_null]
+      - name: pu_location_id
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('dim_zone')
+                field: zone_id
+
+  - name: dim_zone
+    columns:
+      - name: zone_id
+        data_tests: [unique, not_null]
 
   - name: daily_revenue
     columns:
       - name: day
-        tests: [unique, not_null]
+        data_tests: [unique, not_null]
       - name: trips
-        tests: [not_null]
+        data_tests: [not_null]
