@@ -1,0 +1,17 @@
+services:
+  airflow:
+    build: .
+    command: standalone
+    ports:
+      - "8080:8080"
+    environment:
+      AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+      AIRFLOW__CORE__SIMPLE_AUTH_MANAGER_ALL_ADMINS: "True"
+      GOOGLE_APPLICATION_CREDENTIALS: /creds/adc.json
+      GOOGLE_CLOUD_PROJECT: retail-dev-nk2026
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ../ingestion:/opt/project/ingestion
+      - ../dbt:/opt/project/dbt
+      - ../data:/opt/project/data
+      - ${APPDATA}/gcloud/application_default_credentials.json:/creds/adc.json:ro
