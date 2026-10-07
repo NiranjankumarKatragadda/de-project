@@ -14,7 +14,7 @@ SELECT
   total_amount
 FROM raw.yellow_trips
 WHERE tpep_pickup_datetime >= '2024-01-01'
-  AND tpep_pickup_datetime <  '2024-02-01'
+  AND tpep_pickup_datetime <  '2024-04-01'
   AND tpep_dropoff_datetime >= tpep_pickup_datetime
   AND trip_distance > 0
   AND fare_amount > 0;
